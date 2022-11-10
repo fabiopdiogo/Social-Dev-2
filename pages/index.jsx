@@ -1,11 +1,14 @@
 import styled from "styled-components"
-
+import Navbar from "../src/components/inputs/Navbar"
 
 function HomePage(){
   return(
-    <div>
-      
-    </div>
+    <>
+      <Navbar />
+      <div>
+        SejaDev
+      </div>
+    </>
   )
 }
 
