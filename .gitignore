@@ -1,5 +1,5 @@
 node_modules
 .next
 .env.local
-.senhacluster.txt
-.Anotações.txt
+Anotações.txt
+senhacluster.txt
