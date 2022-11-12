@@ -1,0 +1,7 @@
+lib/middlewares/validation - importa o next-joi para validar os dados de entrada
+lib/middlewares/readConnect - importa o o next-conect e a função mongooseMiddleware para realizar a conexão com
+o mongodb
+
+lib/middlewares/moongoose - conexão com o banco de dados
+
+modules/user/user.model.js -  arquivo que define o modelo do usuario e valida o mesmo,antes de ser armazenado no banco
