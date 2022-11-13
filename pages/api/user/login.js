@@ -24,8 +24,7 @@ handler.post(validate({ body: loginSchema }), async  (req, res) => {
     await req.session.save()
     res.send({ok: true})
   }catch (err){
-    console.error(err)
-    throw err
+    return res.status(400).send(err.message)
   }
 })
 
