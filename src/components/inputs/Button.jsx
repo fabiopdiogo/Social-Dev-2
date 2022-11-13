@@ -10,7 +10,7 @@ const Button = styled.button`
   font-size: 16px;
   transition: 0.3s;
 
-  ${props => props.disabled && 'cursor: pointer;'}
+  ${props => !props.disabled && 'cursor: pointer;'}
 
   :hover {
     background-color: ${props => props.theme.primaryHover};

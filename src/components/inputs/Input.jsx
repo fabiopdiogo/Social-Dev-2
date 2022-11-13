@@ -22,14 +22,26 @@ const StyledInput = styled.input`
   &:focus {
     outline: none
   }
-  
-
 `
-const Input = forwardRef (({label, ...props}, ref) => {
+const ErrorLabel = styled.span`
+  color: ${props => props.theme.error};
+  font-weight: bold;
+  font-size: 14px;
+`
+const errorMessage = {
+  'string.empty': 'Este campo é obrigatótio.',
+  'string.email': 'Por favor, digite um e-mail válido.',
+  'string.min': 'A senha deve ter no minimo 6 caracteres.',
+  'duplicated': 'Já existe uma conta criada com esse valor.'
+}
+
+const Input = forwardRef (({label, error, ...props}, ref) => {
+  console.log(error)
   return (
     <InputContainer>
       <StyledLabel>{label}</StyledLabel>
-      <StyledInput placeholder={label} {...props} ref={ref}/>
+      <StyledInput placeholder={label} error={error} {...props} ref={ref}/>
+      {error && <ErrorLabel>{errorMessage[error.type] || error.message}</ErrorLabel>}
     </InputContainer>
   )
 }) 
