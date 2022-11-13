@@ -33,20 +33,10 @@ const PostContainer = styled.div`
   flex-direction: column;
   gap: 20px;
 `
+const fetcher = url => axios.get(url).then(res => res.data)
 
 function HomePage({ user }){
-  const [data, setData] = useState([])
-  const handlePosts = async () =>{
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/post`)
-    setData(response.data)
-  }
-
-  useEffect(() => {
-    handlePosts()
-  },[])
-
-  console.log(data)
-
+  const { data } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/api/post`, fetcher)
   return(
     <>
       <Navbar />
