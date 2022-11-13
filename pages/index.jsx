@@ -1,3 +1,4 @@
+import  { useEffect, useState } from 'react'
 import { withIronSessionSsr } from 'iron-session/next'
 import axios from 'axios'
 import useSWR from 'swr'
@@ -34,6 +35,18 @@ const PostContainer = styled.div`
 `
 
 function HomePage({ user }){
+  const [data, setData] = useState([])
+  const handlePosts = async () =>{
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/post`)
+    setData(response.data)
+  }
+
+  useEffect(() => {
+    handlePosts()
+  },[])
+
+  console.log(data)
+
   return(
     <>
       <Navbar />
@@ -45,9 +58,18 @@ function HomePage({ user }){
             <RefreshPosts>Carregar novas postagens</RefreshPosts>
           </RefreshPostsContainer>
           <PostContainer>
-            <Post />
-            <Post />
-            <Post />
+              {
+                data?.map(post => 
+                  <Post 
+                    key={post._id}
+                    text={post.text}
+                    user={post.createdBy.user}
+                    date={post.createdDate}
+                    isOwner={post.createdBy._id === user.id}
+                    id={post._id}
+                  />
+                )
+              }
           </PostContainer>
         </Container>
 
