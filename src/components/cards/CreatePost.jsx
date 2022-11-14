@@ -65,7 +65,7 @@ function CreatePost ({username}) {
                control={control} 
                name="text"
                maxLength="256"
-          />
+              />
           </TextContainer>
           <BottomContainer>
             <BottomText>A sua mensagem será pública</BottomText>
