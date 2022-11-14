@@ -1,5 +1,11 @@
 import styled from 'styled-components'
-import Textarea from '../inputs/Textarea'
+import ControlledTextarea from '../inputs/ControlledTextarea'
+import { useForm } from 'react-hook-form'
+import { joiResolver } from '@hookform/resolvers/joi'
+import axios from 'axios'
+import { useSWRConfig } from 'swr'
+
+import { createPostSchema } from '../../../modules/post/post.schema'
 
 import Button from '../inputs/Button'
 import H4 from '../typography/H4'
@@ -32,18 +38,40 @@ const BottomText = styled.p`
   flex: 1;
 `
 
-function CreatePost ({username}) {
-  
+function CreatePost ({username}) {  
+  const { mutate } = useSWRConfig()
+  const {control, handleSubmit, formState: { isValid }, reset } = useForm({
+    resolver: joiResolver(createPostSchema),
+    mode: 'all'
+  })
+
+  const onSubmit = async (data) =>{
+    const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/post`, data)
+    if (response.status === 201) {
+      reset()
+      mutate(`${process.env.NEXT_PUBLIC_API_URL}/api/post`)
+    }
+    console.log(response)
+  }
+
   return(
     <PostContainer>
      <H4><Title>No que você esta pensando, @{username}?</Title></H4>
-     <TextContainer>
-        <Textarea></Textarea>
-     </TextContainer>
-     <BottomContainer>
-      <BottomText>A sua mensagem será pública</BottomText>
-      <Button>Enviar mensagem</Button>
-     </BottomContainer>
+    <form onSubmit={handleSubmit(onSubmit)}>
+          <TextContainer>
+              <ControlledTextarea
+               placeholder='Digite a sua mensagem'
+               rows="4" 
+               control={control} 
+               name="text"
+               maxLength="256"
+          />
+          </TextContainer>
+          <BottomContainer>
+            <BottomText>A sua mensagem será pública</BottomText>
+            <Button disabled={!isValid}>Postar mensagem</Button>
+          </BottomContainer>
+   </form>   
    </PostContainer>
   )
 }
