@@ -1,12 +1,12 @@
-# Form-Cartao
+# Social-Dev
 
 # Como surgiu a ideia do projeto?
 
- Esse é um projeto que usei do site FrontEnd Mentor (https://www.frontendmentor.io/).
+ Este projeto e do curso Seja Dev Jornada Fullstack em que sou matriculado. 
 
 ## Sobre o projeto
 
-Este projeto e do curso Seja Dev Jornada Fullstack em que sou matriculado. A proposta e a realização de um protótipo de uma rede social baseada num CRUD.
+A proposta e a realização de um protótipo de uma rede social baseada num CRUD.
 O projeto tem a parte de cadastro de usuario, login, criação de post (somente texto), edição do post e exclusão do post.
 
 ### 01. Rodando o Projeto
