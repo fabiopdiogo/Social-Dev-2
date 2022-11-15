@@ -1,5 +1,5 @@
 # Social-Dev
-
+Link do deploy: https://social-dev-woad.vercel.app/login
 # Como surgiu a ideia do projeto?
 
  Este projeto e do curso Seja Dev Jornada Fullstack em que sou matriculado. 
