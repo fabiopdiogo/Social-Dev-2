@@ -4,11 +4,11 @@ Link do deploy: https://social-dev-woad.vercel.app/login
 
 # Como surgiu a ideia do projeto?
 
- Este projeto e do curso Seja Dev Jornada Fullstack em que sou matriculado. 
+ Esse é um projeto que usei do site FrontEnd Mentor (https://www.frontendmentor.io/).
 
 ## Sobre o projeto
 
-A proposta e a realização de um protótipo de uma rede social baseada num CRUD.
+Este projeto e do curso Seja Dev Jornada Fullstack em que sou matriculado. A proposta e a realização de um protótipo de uma rede social baseada num CRUD.
 O projeto tem a parte de cadastro de usuario, login, criação de post (somente texto), edição do post e exclusão do post.
 
 ### 01. Rodando o Projeto
