@@ -57,7 +57,7 @@ function Post ({text, user, date, isOwner, id}){
   
   return (
     <PostContainer>
-          {
+          { 
             isOwner &&
             <ContainerMenu>
               <Menu

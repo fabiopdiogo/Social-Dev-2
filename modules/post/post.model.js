@@ -1,7 +1,5 @@
 import mongoose from 'mongoose'
 
-import User from '../user/user.model'
-
 const PostSchema = new mongoose.Schema({
   text: { type: String, required: true, maxlength: 256},
   createdDate: { type: Date, required: true},
